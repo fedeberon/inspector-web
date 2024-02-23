@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+    <query name="findAllCampaigns" resultClass="com.ideaas.services.domain.MapCampaign">
+        <![CDATA[
+            SELECT
+                mca.id_map_campana campaignId,
+                mca.nombre campaignName,
+                mcl.id_map_cliente clientId,
+                mcl.nombre clientName,
+                (SELECT min(mre.fecha_desde) WHERE mre.id_map_estado_reservacion != 3) AS startDate,
+                (SELECT max(mre.fecha_hasta) WHERE mre.id_map_estado_reservacion != 3) AS finishDate,
+                coalesce((SELECT count(DISTINCT mre.id_map_reservacion) WHERE mre.id_map_estado_reservacion != 3), 0) AS amountReservations,
+                coalesce((SELECT min(mre.id_map_estado_reservacion) WHERE mre.id_map_estado_reservacion != 3), 3) AS reservationtState,
+                (SELECT CASE WHEN EXISTS (SELECT 1 FROM map_reservacion mre2 WHERE mre2.id_map_campana = mca.id_map_campana AND mre2.id_map_estado_reservacion = 3) THEN TRUE ELSE FALSE END) AS hasCanceledReservations,
+                coalesce((SELECT count(DISTINCT mre.id_map_reservacion) WHERE mre.exhibir = 0), 0) = 0 AS exhibir
+            FROM 
+                map_reservacion mre
+                INNER JOIN map_campana mca ON mre.id_map_campana = mca.id_map_campana
+                INNER JOIN map_cliente mcl ON mcl.id_map_cliente = mca.id_map_cliente
+                INNER JOIN map_empresa_map_cliente memc ON memc.id_map_cliente = mcl.id_map_cliente
+                INNER JOIN map_empresas mem ON mem.idEmpresa = memc.idEmpresa
+            WHERE 
+                -1 IN (?1) OR mem.idEmpresa IN (?1)
+            GROUP BY 
+                mca.id_map_campana
+            ORDER BY 
+            startDate DESC
+        ]]>
+    </query>
+
+    <query name="findCampaignById" resultClass="com.ideaas.services.domain.MapCampaign">
+        <![CDATA[
+           SELECT
+                mca.id_map_campana AS campaignId,
+                mca.nombre AS campaignName,
+                mcl.id_map_cliente AS clientId,
+                mcl.nombre AS clientName,
+                (SELECT min(mre.fecha_desde) WHERE mre.id_map_estado_reservacion != 3) AS startDate,
+                (SELECT max(mre.fecha_hasta) WHERE mre.id_map_estado_reservacion != 3) AS finishDate,
+                coalesce((SELECT count(DISTINCT mre.id_map_reservacion) WHERE mre.id_map_estado_reservacion != 3), 0) AS amountReservations,
+                coalesce((SELECT min(mre.id_map_estado_reservacion) WHERE mre.id_map_estado_reservacion != 3), 3) AS reservationtState,
+                (SELECT CASE WHEN EXISTS (SELECT 1 FROM map_reservacion mre2 WHERE mre2.id_map_campana = mca.id_map_campana AND mre2.id_map_estado_reservacion = 3) THEN TRUE ELSE FALSE END) AS hasCanceledReservations,
+                coalesce((SELECT count(DISTINCT mre.id_map_reservacion) WHERE mre.exhibir = 0), 0) = 0 AS exhibir
+            FROM
+                map_reservacion mre
+                INNER JOIN map_campana mca ON mre.id_map_campana = mca.id_map_campana
+                INNER JOIN map_cliente mcl ON mcl.id_map_cliente = mca.id_map_cliente
+                INNER JOIN map_empresa_map_cliente memc ON memc.id_map_cliente = mcl.id_map_cliente
+                INNER JOIN map_empresas mem ON mem.idEmpresa = memc.idEmpresa
+            WHERE
+                mca.id_map_campana = ?1
+            GROUP BY
+                mca.id_map_campana
+        ]]>
+    </query>
+</queries>

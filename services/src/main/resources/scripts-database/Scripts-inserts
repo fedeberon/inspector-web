@@ -1,0 +1,29 @@
+SET sql_mode='NO_AUTO_VALUE_ON_ZERO';
+SET sql_mode='TRADITIONAL';
+
+insert into contratos (idContrato , descripcion , estado , observacion , tipoContrato)
+values (0 , 'SIN CONTRATO', 'B' , '' , '');
+
+insert into contratos_inversion (idContratoInv, idContrato , idRubro , fechaDesde , fechaHasta , creatividades)
+values (0 , 0, '', '', '', '');
+
+insert into contratos_auditoria (idContratoAud, idContrato , idCampanna)
+values (0 , 0, '');
+
+insert into contratos_mapping (idContratoMap, idContrato , idEVP)
+values (0 , 0, 0);
+
+insert into map_buses (idMapBuses, linea , color, fecha_alta)
+values (0 , '', '', 0);
+
+insert into map_anunciantes (idAnunciante , Descripcion)
+values (0 , '');
+
+insert into map_productos (idProducto, descripcion, idAnunciante)
+values (0 , '', 0);
+
+insert into productos (idProducto, descripcion)
+values (0 , '');
+
+insert into sistema_test.map_provincias (idProvincia , descripcion , evalua)
+values (0 , 'Sin Provincia' , 0);

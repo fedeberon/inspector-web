@@ -1,0 +1,63 @@
+CREATE TABLE `SEQ_AUD_EMPRESA` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_EMPRESA` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_FORMATO` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_ELEMENTOS` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_MEDIOS` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_PROVINCIAS` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_LOCALIDADES` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_POIS` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_POIS_ENTIDAD` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_POIS_SECTOR` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+CREATE TABLE `SEQ_MAP_UBICACION` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+CREATE TABLE `SEQ_USUARIO` (
+  `next_val` bigint(20) DEFAULT NULL
+);
+
+#Verificar ultimo registro:
+insert into SEQ_AUD_EMPRESA values (1005);
+insert into SEQ_MAP_ELEMENTOS values (301);
+insert into SEQ_MAP_EMPRESA values (1000);
+insert into SEQ_MAP_FORMATO values (8);
+insert into SEQ_MAP_LOCALIDADES values (766);
+insert into SEQ_MAP_MEDIOS values (4);
+insert into SEQ_MAP_POIS values (32903);
+insert into SEQ_MAP_POIS_ENTIDAD values (12177);
+insert into SEQ_MAP_POIS_SECTOR values (20);
+insert into SEQ_MAP_PROVINCIAS values (36);
+insert into SEQ_MAP_UBICACION values (16111);
+insert into SEQ_USUARIO values (1684);
+
+#Trigger of map_ubicaciones:
+UPDATE sistema_test.SEQ_MAP_UBICACION SET next_val = (SELECT idUbicacion FROM sistema_test.map_ubicaciones ORDER BY idUbicacion DESC LIMIT 1) + 1;

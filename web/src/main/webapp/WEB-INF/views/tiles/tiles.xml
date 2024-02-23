@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="template-def" template="/WEB-INF/views/tiles/layouts/layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/tiles/templates/header.jsp" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer"  value="/WEB-INF/views/tiles/templates/footer.jsp" />
+    </definition>
+
+    <definition name="home" extends="template-def">
+        <put-attribute name="title" value="Home" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/home.jsp" />
+    </definition>
+
+    <definition name="inspector" extends="template-def">
+        <put-attribute name="title" value="Home" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/home.jsp" />
+    </definition>
+
+    <definition name="login" extends="template-def">
+        <put-attribute name="title" value="Login" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="navbar" value="" />
+        <put-attribute name="footer"  value="/WEB-INF/views/tiles/templates/footer.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />
+    </definition>
+
+    <definition name="forgotPassword" extends="template-def">
+        <put-attribute name="title" value="Forgot Password" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="navbar" value="" />
+        <put-attribute name="footer"  value="/WEB-INF/views/tiles/templates/footer.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/sendMail/forgotPassword.jsp" />
+    </definition>
+
+    <definition name="emailStatus" extends="template-def">
+        <put-attribute name="title" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="navbar" value="" />
+        <put-attribute name="footer"  value="/WEB-INF/views/tiles/templates/footer.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/sendMail/emailStatus.jsp" />
+    </definition>
+
+    <definition name="emailNotExistError" extends="template-def">
+        <put-attribute name="title" value="" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="navbar" value="" />
+        <put-attribute name="footer"  value="/WEB-INF/views/tiles/templates/footer.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/sendMail/emailNotExistError.jsp" />
+    </definition>
+
+    <definition name="maps" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/maps.jsp" />
+    </definition>
+
+    <definition name="panel" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/dashboard.jsp" />
+    </definition>
+
+    <definition name="usuario/list" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/user/list.jsp" />
+    </definition>
+
+    <definition name="usuario/listComplete" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/user/list.jsp" />
+    </definition>
+
+    <definition name="usuario/create" extends="template-def">
+        <put-attribute name="title" value="Crear usuario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/user/create.jsp" />
+    </definition>
+
+    <definition name="usuario/update" extends="template-def">
+        <put-attribute name="title" value="Usuario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/user/update.jsp" />
+    </definition>
+
+    <definition name="usuario/show" extends="template-def">
+        <put-attribute name="title" value="Usuario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/user/show.jsp" />
+    </definition>
+
+    <definition name="ubicacion/list" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacion/list.jsp" />
+        <put-attribute name="filterUbicacionSimple"  value="/WEB-INF/views/pages/modals/editUbicacionesModal.jsp" />
+
+    </definition>
+
+    <definition name="ubicacion/editList" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacion/editList.jsp" />
+    </definition>
+
+    <definition name="ubicacion/map" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/maps.jsp" />
+    </definition>
+
+    <definition name="ubicacion/create" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacion/create.jsp" />
+    </definition>
+
+    <definition name="ubicacion/show" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacion/show.jsp" />
+    </definition>
+
+    <definition name="ubicacion/update" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacion/update.jsp" />
+    </definition>
+
+
+    <definition name="empresa/list" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/empresa/list.jsp" />
+    </definition>
+
+
+    <definition name="empresa/show" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/empresa/show.jsp" />
+    </definition>
+
+    <definition name="empresa/create" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/empresa/create.jsp" />
+    </definition>
+
+    <definition name="empresa/update" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/empresa/update.jsp" />
+    </definition>
+
+    <definition name="tabla" extends="template-def">
+        <put-attribute name="title" value="Tablas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/tablas.jsp" />
+    </definition>
+
+    <definition name="elemento/list" extends="template-def">
+        <put-attribute name="title" value="Tablas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/elemento/list.jsp" />
+    </definition>
+
+    <definition name="elemento/show" extends="template-def">
+        <put-attribute name="title" value="Tablas" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/elemento/show.jsp" />
+    </definition>
+
+    <definition name="elemento/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/elemento/create.jsp" />
+    </definition>
+
+    <definition name="elemento/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/elemento/update.jsp" />
+    </definition>
+
+    <definition name="formato/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/formato/list.jsp" />
+    </definition>
+
+    <definition name="formato/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/formato/show.jsp" />
+    </definition>
+
+    <definition name="formato/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/formato/create.jsp" />
+    </definition>
+
+    <definition name="formato/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/formato/update.jsp" />
+    </definition>
+
+    <definition name="medio/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/medio/show.jsp" />
+    </definition>
+
+    <definition name="medio/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/medio/list.jsp" />
+    </definition>
+
+    <definition name="medio/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/medio/create.jsp" />
+    </definition>
+
+    <definition name="medio/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/medio/update.jsp" />
+    </definition>
+
+    <definition name="provincia/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/provincia/list.jsp" />
+    </definition>
+
+    <definition name="provincia/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/provincia/show.jsp" />
+    </definition>
+
+    <definition name="provincia/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/provincia/create.jsp" />
+    </definition>
+
+    <definition name="provincia/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/provincia/update.jsp" />
+    </definition>
+
+    <definition name="localidad/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/localidad/show.jsp" />
+    </definition>
+
+    <definition name="localidad/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/localidad/list.jsp" />
+    </definition>
+
+    <definition name="localidad/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/localidad/create.jsp" />
+    </definition>
+
+    <definition name="localidad/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/localidad/update.jsp" />
+    </definition>
+
+    <definition name="poi/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poi/list.jsp" />
+    </definition>
+
+    <definition name="poi/listComplete" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poi/list.jsp" />
+    </definition>
+
+    <definition name="poi/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poi/show.jsp" />
+    </definition>
+
+    <definition name="poi/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poi/create.jsp" />
+    </definition>
+
+    <definition name="poi/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poi/update.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiEntidad/show.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiEntidad/list.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiEntidad/create.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiEntidad/update.jsp" />
+    </definition>
+
+    <definition name="poiSector/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiSector/list.jsp" />
+    </definition>
+
+    <definition name="poiSector/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiSector/show.jsp" />
+    </definition>
+
+    <definition name="poiSector/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiSector/create.jsp" />
+    </definition>
+
+    <definition name="poiSector/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/poiSector/update.jsp" />
+    </definition>
+
+    <definition name="ubicacionActualizacion/list" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActualizacion/list.jsp" />
+    </definition>
+
+    <definition name="ubicacionActualizacion/show" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActualizacion/show.jsp" />
+    </definition>
+
+    <definition name="ubicacionActualizacion/create" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActualizacion/create.jsp" />
+    </definition>
+
+    <definition name="ubicacionActualizacion/update" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActualizacion/update.jsp" />
+    </definition>
+
+    <definition name="ubicacionActEspecial/list" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion Especial" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActEspecial/list.jsp" />
+    </definition>
+
+    <definition name="ubicacionActEspecial/show" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion Especial" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActEspecial/show.jsp" />
+    </definition>
+
+    <definition name="ubicacionActEspecial/create" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion Especial" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActEspecial/create.jsp" />
+    </definition>
+
+    <definition name="ubicacionActEspecial/update" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Actualizacion Especial" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/ubicacionActEspecial/update.jsp" />
+    </definition>
+
+    <definition name="error" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/error.jsp" />
+    </definition>
+
+    <definition name="access_denied" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/access_denied.jsp" />
+    </definition>
+
+    <definition name="mantenimiento/list" extends="template-def">
+        <put-attribute name="title" value="Mantenimiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/mantenimiento/list.jsp" />
+    </definition>
+
+    <definition name="relevamiento/list" extends="template-def">
+        <put-attribute name="title" value="Relevamientos" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/relevamiento/list.jsp" />
+    </definition>
+
+    <definition name="relevamiento/update" extends="template-def">
+        <put-attribute name="title" value="Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/relevamiento/update.jsp" />
+    </definition>
+
+    <definition name="relevamiento/create" extends="template-def">
+        <put-attribute name="title" value="Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/relevamiento/create.jsp" />
+    </definition>
+
+    <definition name="relevamiento/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/relevamiento/show.jsp" />
+    </definition>
+
+    <definition name="formulario/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/formulario/list.jsp" />
+    </definition>
+
+    <definition name="formulario/create" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/formulario/create.jsp" />
+    </definition>
+
+    <definition name="formulario/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/formulario/update.jsp" />
+    </definition>
+
+    <definition name="formulario/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/formulario/show.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRelevamiento/list" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacionRelevamiento/list.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRelevamiento/create" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacionRelevamiento/create.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRelevamiento/show" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacionRelevamiento/show.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRelevamiento/update" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacionRelevamiento/update.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRelevamiento/map" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacionRelevamiento/appMap.jsp" />
+    </definition>
+
+    <definition name="appUbicacion/list" extends="template-def">
+        <put-attribute name="title" value="Ubicacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacion/list.jsp" />
+    </definition>
+
+    <definition name="appUbicacion/create" extends="template-def">
+        <put-attribute name="title" value="Ubicacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacion/create.jsp" />
+    </definition>
+
+    <definition name="appUbicacion/show" extends="template-def">
+        <put-attribute name="title" value="Ubicacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacion/show.jsp" />
+    </definition>
+
+    <definition name="appUbicacion/update" extends="template-def">
+        <put-attribute name="title" value="Ubicacion" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacion/update.jsp" />
+    </definition>
+
+    <definition name="appUbicacion/map" extends="template-def">
+        <put-attribute name="title" value="Ubicacion Maps" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/ubicacion/appMap.jsp" />
+    </definition>
+
+    <definition name="parametro/list" extends="template-def">
+        <put-attribute name="title" value="Relevamientos" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/parametro/list.jsp" />
+    </definition>
+
+    <definition name="parametro/update" extends="template-def">
+        <put-attribute name="title" value="Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/parametro/update.jsp" />
+    </definition>
+
+    <definition name="parametro/create" extends="template-def">
+        <put-attribute name="title" value="Relevamiento" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/parametro/create.jsp" />
+    </definition>
+
+    <definition name="parametro/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/parametro/show.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRevisar/show" extends="template-def">
+        <put-attribute name="title" value="Revisar Ubicacion"/>
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/auditapp/ubicacionRevisar/show.jsp" />
+    </definition>
+
+    <definition name="appUbicacionRevisar/list" extends="template-def">
+        <put-attribute name="title" value="Revisar ubicaciones"/>
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/auditapp/ubicacionRevisar/list.jsp" />
+    </definition>
+
+    <definition name="stock/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/stock/list.jsp" />
+    </definition>
+
+    <definition name="stock/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/stock/update.jsp" />
+    </definition>
+
+    <definition name="stock/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/stock/show.jsp" />
+    </definition>
+
+    <definition name="stock/create" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/stock/create.jsp" />
+    </definition>
+
+    <definition name="cliente/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/cliente/list.jsp" />
+    </definition>
+
+    <definition name="cliente/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/cliente/update.jsp" />
+    </definition>
+
+    <definition name="cliente/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/cliente/show.jsp" />
+    </definition>
+
+    <definition name="cliente/create" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/cliente/create.jsp" />
+    </definition>
+
+    <definition name="planning/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/planning/list.jsp" />
+    </definition>
+
+    <definition name="planning/maps" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/planning/maps.jsp" />
+    </definition>
+
+    <definition name="campaign/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/campaign/list.jsp" />
+    </definition>
+
+    <definition name="campaign/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/campaign/update.jsp" />
+    </definition>
+
+    <definition name="campaign/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/campaign/show.jsp" />
+    </definition>
+
+
+    <definition name="campaign/clone" extends="template-def">
+        <put-attribute name="title"  value="Cloning" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu"   value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"   value="/WEB-INF/views/pages/campaign/clone.jsp" />
+    </definition>
+
+
+    <definition name="circuit/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/circuit/list.jsp" />
+    </definition>
+
+    <definition name="circuit/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/circuit/update.jsp" />
+    </definition>
+
+    <definition name="circuit/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/circuit/show.jsp" />
+    </definition>
+
+
+    <definition name="reservation/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/reservation/list.jsp" />
+    </definition>
+
+    <definition name="reservation/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/reservation/update.jsp" />
+    </definition>
+
+    <definition name="reservation/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/reservation/show.jsp" />
+    </definition>
+
+    <definition name="reservation/create" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/reservation/create.jsp" />
+    </definition>
+
+    <definition name="project/list" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/project/list.jsp" />
+    </definition>
+
+    <definition name="project/show" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/project/show.jsp" />
+    </definition>
+
+    <definition name="project/create" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/project/create.jsp" />
+    </definition>
+
+    <definition name="project/update" extends="template-def">
+        <put-attribute name="title" value="Formulario" />
+        <put-attribute name="navbar" value="/WEB-INF/views/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/pages/menu.jsp" />
+        <put-attribute name="body"  value="/WEB-INF/views/pages/auditapp/project/update.jsp" />
+    </definition>
+</tiles-definitions>
+

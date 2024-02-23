@@ -1,0 +1,133 @@
+create table sistema_web.app_formulario (
+    idFormulario  BIGINT AUTO_INCREMENT NOT NULL ,
+    nombreFormulario VARCHAR(255),
+    formulario TEXT NOT NULL,
+    PRIMARY KEY (idFormulario)
+);
+
+create table sistema_web.app_estado_relevamiento (
+    idEstado BIGINT AUTO_INCREMENT NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    PRIMARY KEY (idEstado)
+);
+INSERT INTO `sistema_web`.`app_estado_relevamiento` (`idEstado`, `descripcion`) VALUES ('1', 'No asignado');
+INSERT INTO `sistema_web`.`app_estado_relevamiento` (`idEstado`, `descripcion`) VALUES ('2', 'Asignado');
+INSERT INTO `sistema_web`.`app_estado_relevamiento` (`idEstado`, `descripcion`) VALUES ('3', 'Finalizado');
+INSERT INTO `sistema_web`.`app_estado_relevamiento` (`idEstado`, `descripcion`) VALUES ('4', 'Aprobado');
+
+create table sistema_web.app_relevamiento (
+    idRelevamiento BIGINT AUTO_INCREMENT NOT NULL ,
+    nombreRelevamiento VARCHAR(255),
+    idUsuario INT(10) UNSIGNED NOT NULL,
+    idFormulario BIGINT NOT NULL,
+    idEstado BIGINT NOT NULL,
+    con_ubicaciones_preasignadas TINYINT(1) NOT NULL,
+    fecha_asignacion VARCHAR(10),
+    FOREIGN KEY (idUsuario) REFERENCES sistema_web.usuarios(idUsuario) ,
+    FOREIGN KEY (idFormulario) REFERENCES sistema_web.app_formulario(idFormulario),
+    FOREIGN KEY (idEstado) REFERENCES sistema_web.app_estado_relevamiento(idEstado),
+    PRIMARY KEY (idRelevamiento)
+);
+
+create table sistema_web.app_ubicaciones_relevamiento (
+    idUbicacion BIGINT AUTO_INCREMENT NOT NULL ,
+    one_claveUbi BIGINT UNIQUE NULL DEFAULT NULL COMMENT 'Esta columna hace referencia a la tabla de ubicaciones del otro sistema de Scopesi llamado ONE. La razon por la cual existe esta referencia es para evitar el duplicamiento de ubicaciones a la hora de subir mediante el excel.',
+    direccion VARCHAR(255) NOT NULL,
+    cantidad INT(11),
+    evp VARCHAR(45),
+    elemento VARCHAR(50),
+    anunciante VARCHAR(45),
+    producto VARCHAR(45),
+    referencias VARCHAR(255),
+    localidad VARCHAR(45),
+    provincia VARCHAR(45),
+    geo_latitud DOUBLE,
+    geo_longitud DOUBLE,
+    PRIMARY KEY (idUbicacion)
+);
+
+create table sistema_web.app_respuesta (
+    idRespuesta BIGINT AUTO_INCREMENT NOT NULL ,
+    idUbicacion BIGINT,
+    idRelevamiento BIGINT NOT NULL,
+    one_orden_s BIGINT NOT NULL DEFAULT 0 NULL COMMENT 'Esta columna hace referencia a otra tabla del otro sistema de Scopesi llamado ONE',
+    one_circuito BIGINT NULL DEFAULT NULL COMMENT 'Esta columna hace referencia a otra tabla del otro sistema de Scopesi llamado ONE',
+    respuesta TEXT,
+    estado TINYINT(1),
+    token VARCHAR(100),
+    FOREIGN KEY (idUbicacion) REFERENCES sistema_web.app_ubicaciones_relevamiento(idUbicacion) ,
+    FOREIGN KEY (idRelevamiento) REFERENCES sistema_web.app_relevamiento(idRelevamiento) ,
+    PRIMARY KEY (idRespuesta)
+);
+------------------------------------------------------------------------------------------------------------------
+ -- 15-6-22 Add new table sistema_web.app_proyecto:
+ -- SQL Query
+CREATE TABLE sistema_test.SEQ_APP_PROYECTO(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_test.SEQ_APP_PROYECTO(next_val) values(2);
+
+CREATE TABLE sistema_test.app_proyecto(
+	id_app_proyecto int(10) UNSIGNED NOT NULL,
+	nombre    varchar(250) NOT NULL,
+    PRIMARY KEY(id_app_proyecto)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sistema_web.SEQ_APP_PROYECTO(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_web.SEQ_APP_PROYECTO(next_val) values(2);
+
+CREATE TABLE sistema_web.app_proyecto(
+	id_app_proyecto int(10) UNSIGNED NOT NULL,
+	nombre    varchar(250) NOT NULL,
+    PRIMARY KEY(id_app_proyecto)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Rollback
+DROP  TABLE sitema_test .app_proyecto;
+DROP  TABLE sitema_test .SEQ_MAP_CLIENTE;
+
+DROP  TABLE sistema_web .app_proyecto;
+DROP  TABLE sistema_web .SEQ_APP_PROYECTO;
+
+------------------------------------------------------------------------------------------------------------------
+ -- 23-6-22 Alter table sistema_web.app_proyecto:
+ -- SQL Query
+
+ALTER TABLE sistema_test.app_relevamiento
+ADD COLUMN id_app_proyecto INT(10) NULL AFTER id_route4me_ruta_relevamiento;
+
+ALTER TABLE sistema_test.app_relevamiento
+CHANGE COLUMN id_app_proyecto id_app_proyecto INT(10) UNSIGNED NULL DEFAULT NULL ,
+ADD INDEX app_relevamiento_ibfk_4_idx (id_app_proyecto ASC);
+;
+ALTER TABLE sistema_test.app_relevamiento
+ADD CONSTRAINT app_relevamiento_ibfk_4
+  FOREIGN KEY (id_app_proyecto)
+  REFERENCES sistema_test.app_proyecto (id_app_proyecto)
+  ON DELETE RESTRICT
+  ON UPDATE RESTRICT;
+
+ALTER TABLE sistema_web.app_relevamiento
+ADD COLUMN id_app_proyecto INT(10) NULL AFTER bajaLogica;
+
+ALTER TABLE sistema_web.app_relevamiento
+CHANGE COLUMN id_app_proyecto id_app_proyecto INT(10) UNSIGNED NULL DEFAULT NULL ,
+ADD INDEX app_relevamiento_ibfk_4_idx (id_app_proyecto ASC);
+;
+ALTER TABLE sistema_web.app_relevamiento
+ADD CONSTRAINT app_relevamiento_ibfk_4
+  FOREIGN KEY (id_app_proyecto)
+  REFERENCES sistema_web.app_proyecto (id_app_proyecto)
+  ON DELETE RESTRICT
+  ON UPDATE RESTRICT;
+
+-- Rollback
+ALTER TABLE sistema_test.app_relevamiento DROP CONSTRAINT app_relevamiento_ibfk_4
+ALTER TABLE sistema_test.app_relevamiento DROP COLUMN id_app_proyecto;
+
+ALTER TABLE sistema_web.app_relevamiento DROP CONSTRAINT app_relevamiento_ibfk_4
+ALTER TABLE sistema_web.app_relevamiento DROP COLUMN id_app_proyecto;

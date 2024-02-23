@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="template-def" template="/tiles/layouts/layout.jsp">
+        <put-attribute name="header" value="/tiles/templates/header.jsp" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer"  value="/tiles/templates/footer.jsp" />
+    </definition>
+
+    <definition name="home" extends="template-def">
+        <put-attribute name="title" value="Home" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/home.jsp" />
+    </definition>
+
+    <definition name="login" extends="template-def">
+        <put-attribute name="title" value="Login" />
+        <put-attribute name="menu" value="" />
+        <put-attribute name="navbar" value="" />
+        <put-attribute name="footer"  value="/tiles/templates/footer.jsp" />
+        <put-attribute name="body" value="/tiles/pages/login.jsp" />
+    </definition>
+
+
+    <definition name="maps" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/maps.jsp" />
+    </definition>
+
+
+    <definition name="panel" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/dashboard.jsp" />
+    </definition>
+
+
+
+    <definition name="usuario/list" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/user/list.jsp" />
+    </definition>
+
+
+    <definition name="ubicacion/list" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/ubicacion/list.jsp" />
+    </definition>
+
+    <definition name="ubicacion/editList" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/ubicacion/editList.jsp" />
+    </definition>
+
+    <definition name="ubicacion/map" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/maps.jsp" />
+    </definition>
+
+    <definition name="ubicacion/create" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/ubicacion/create.jsp" />
+    </definition>
+
+    <definition name="ubicacion/show" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/ubicacion/show.jsp" />
+    </definition>
+
+    <definition name="ubicacion/update" extends="template-def">
+        <put-attribute name="title" value="Maps" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/ubicacion/update.jsp" />
+    </definition>
+
+
+    <definition name="empresa/list" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/empresa/list.jsp" />
+    </definition>
+
+
+    <definition name="empresa/show" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/empresa/show.jsp" />
+    </definition>
+
+    <definition name="empresa/create" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/empresa/create.jsp" />
+    </definition>
+
+    <definition name="empresa/update" extends="template-def">
+        <put-attribute name="title" value="Empresas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/empresa/update.jsp" />
+    </definition>
+
+    <definition name="tabla" extends="template-def">
+        <put-attribute name="title" value="Tablas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/tablas.jsp" />
+    </definition>
+
+    <definition name="elemento/list" extends="template-def">
+        <put-attribute name="title" value="Tablas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/elemento/list.jsp" />
+    </definition>
+
+    <definition name="elemento/show" extends="template-def">
+        <put-attribute name="title" value="Tablas" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/elemento/show.jsp" />
+    </definition>
+
+    <definition name="elemento/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/elemento/create.jsp" />
+    </definition>
+
+    <definition name="elemento/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/elemento/update.jsp" />
+    </definition>
+
+    <definition name="formato/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/formato/list.jsp" />
+    </definition>
+
+    <definition name="formato/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/formato/show.jsp" />
+    </definition>
+
+    <definition name="formato/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/formato/create.jsp" />
+    </definition>
+
+    <definition name="formato/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/formato/update.jsp" />
+    </definition>
+
+    <definition name="medio/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/medio/show.jsp" />
+    </definition>
+
+    <definition name="medio/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/medio/list.jsp" />
+    </definition>
+
+    <definition name="medio/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/medio/create.jsp" />
+    </definition>
+
+    <definition name="medio/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/medio/update.jsp" />
+    </definition>
+
+    <definition name="provincia/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/provincia/list.jsp" />
+    </definition>
+
+    <definition name="provincia/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/provincia/show.jsp" />
+    </definition>
+
+    <definition name="provincia/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/provincia/create.jsp" />
+    </definition>
+
+    <definition name="provincia/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/provincia/update.jsp" />
+    </definition>
+
+    <definition name="localidad/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/localidad/show.jsp" />
+    </definition>
+
+    <definition name="localidad/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/localidad/list.jsp" />
+    </definition>
+
+    <definition name="localidad/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/localidad/create.jsp" />
+    </definition>
+
+    <definition name="localidad/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/localidad/update.jsp" />
+    </definition>
+
+    <definition name="poi/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poi/list.jsp" />
+    </definition>
+
+    <definition name="poi/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poi/show.jsp" />
+    </definition>
+
+    <definition name="poi/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poi/create.jsp" />
+    </definition>
+
+    <definition name="poi/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poi/update.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiEntidad/show.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiEntidad/list.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiEntidad/create.jsp" />
+    </definition>
+
+    <definition name="poiEntidad/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiEntidad/update.jsp" />
+    </definition>
+
+    <definition name="poiSector/list" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiSector/list.jsp" />
+    </definition>
+
+    <definition name="poiSector/show" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiSector/show.jsp" />
+    </definition>
+
+    <definition name="poiSector/create" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiSector/create.jsp" />
+    </definition>
+
+    <definition name="poiSector/update" extends="template-def">
+        <put-attribute name="title" value="Formato" />
+        <put-attribute name="navbar" value="/tiles/pages/navbar.jsp" />
+        <put-attribute name="menu" value="/tiles/pages/menu.jsp" />
+        <put-attribute name="body"  value="/tiles/pages/poiSector/update.jsp" />
+    </definition>
+
+</tiles-definitions>
+

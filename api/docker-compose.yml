@@ -1,0 +1,9 @@
+version: '3.1'
+
+services:
+  springboot:
+    build: .
+    restart: always
+    container_name: ManagerRestApi
+    ports:
+      - 8885:8080

@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        .parametro{
+            color: #339933;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <p>Este es un correo automático dando respuesta a su solicitud de credenciales para ingresar al sistema de SCOPESI</p>
+    </div>
+    <div>
+        <label class="parametro">USUARIO:&nbsp;</label>
+        <label>${username}</label>
+    </div>
+    <div>
+        <label class="parametro">CONTRASEÑA:&nbsp;</label>
+        <label>${password}</label>
+    </div>
+    <div>
+        <p>Por favor no responda este mail, por cualquier duda contactarse con:
+            <br>Mauro Costa
+            <br>mauroc@scopesi.com.ar</p>
+    </div>
+    <div>
+        <p>¡Muchas gracias!
+            <br>Atte,
+            <br>el equipo de Scopesi.</p>
+    </div>
+</div>
+
+<footer>
+    <table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%"><tbody><tr><td style="padding:9.0pt 9.0pt 9.0pt 9.0pt"><table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%"><tbody><tr><td style="padding:0cm 0cm 0cm 0cm"></td></tr></tbody></table><p class="MsoNormal"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;display:none"><u></u>&nbsp;<u></u></span></p><table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%"><tbody><tr><td style="padding:0cm 0cm 0cm 0cm"><table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%"><tbody><tr><td style="padding:0cm 0cm 0cm 0cm"></td></tr></tbody></table></td></tr></tbody></table><p class="MsoNormal"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;display:none"><u></u>&nbsp;<u></u></span></p><table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%"><tbody><tr><td width="225" style="width:168.75pt;padding:0cm 0cm 0cm 0cm"><p class="MsoNormal"><a href="http://scopesi.com.ar/" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=http://scopesi.com.ar/&amp;source=gmail&amp;ust=1587760541986000&amp;usg=AFQjCNGAlE3EAiGCHi2iZKrCuYsySAtImg"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;text-decoration:none"><img border="0" width="225" height="59" style="width:2.3416in;height:.6166in" id="m_-5871488525304989380_x0000_i1029" src="https://ci3.googleusercontent.com/proxy/-KaTFTwzGsvYXztsRD_22JsVP9DurnKMFN36Vfb1UG7C17V7at3_FPtkIAhbtDBQEemvkVakkupnhLiKeY-bT7LbWLt6CiEgtFtxfoPoHA=s0-d-e1-ft#http://scopesi.com.ar/firma/img/scopesi_logo_firma_chico.png"></span></a><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040"><u></u><u></u></span></p></td><td width="225" style="width:168.75pt;padding:0cm 0cm 0cm 0cm"><table border="0" cellspacing="3" cellpadding="0" width="225" style="width:168.75pt"><tbody><tr><td style="padding:.75pt .75pt .75pt .75pt"></td></tr></tbody></table></td></tr></tbody></table><p class="MsoNormal"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;display:none"><u></u>&nbsp;<u></u></span></p><table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:45%"><tbody><tr><td width="225" style="width:168.75pt;padding:0cm 0cm 0cm 0cm"><table border="0" cellspacing="3" cellpadding="0" align="right" width="100" style="width:75.0pt"><tbody><tr><td style="padding:.75pt .75pt .75pt .75pt"><p class="MsoNormal"><a href="https://www.facebook.com/scopesi.ads/" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=https://www.facebook.com/scopesi.ads/&amp;source=gmail&amp;ust=1587760541987000&amp;usg=AFQjCNGIljyeAO4CD3epkFN5rUd2Wffaww"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;text-decoration:none"><img border="0" width="25" height="27" style="width:.2583in;height:.2833in" id="m_-5871488525304989380_x0000_i1028" src="https://ci5.googleusercontent.com/proxy/43Z36n_sazf9YtY7RknvlFK8fqeKhDdGXrI3Io3QZGWkBiX8mLesU1WruDapVtv73paMdMVsVR02CUp1A7fS3MMNhjha=s0-d-e1-ft#http://scopesi.com.ar/firma/img/boton_facebook.png"></span></a><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040"><u></u><u></u></span></p></td><td style="padding:.75pt .75pt .75pt .75pt"><p class="MsoNormal"><a href="https://twitter.com/scopesiycia" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=https://twitter.com/scopesiycia&amp;source=gmail&amp;ust=1587760541987000&amp;usg=AFQjCNHvsHjy8pqdxF-FUod9qtVsG3REZQ"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;text-decoration:none"><img border="0" width="25" height="27" style="width:.2583in;height:.2833in" id="m_-5871488525304989380_x0000_i1027" src="https://ci6.googleusercontent.com/proxy/8gxI8hbWcmwLcsbDO3FfGGPPhyxZLk2ARbjWWZeioGhSC88BzT322jP0aqFT7w0Fop4ttVla5Oqm5VWv-CyjoCXE0kA=s0-d-e1-ft#http://scopesi.com.ar/firma/img/boton_twitter.png"></span></a><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040"><u></u><u></u></span></p></td><td style="padding:.75pt .75pt .75pt .75pt"><p class="MsoNormal"><a href="https://www.linkedin.com/company/scopesi/" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=https://www.linkedin.com/company/scopesi/&amp;source=gmail&amp;ust=1587760541987000&amp;usg=AFQjCNEqN4nev7cosbxzdmkWo0pmQdfQvQ"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;text-decoration:none"><img border="0" width="25" height="27" style="width:.2583in;height:.2833in" id="m_-5871488525304989380_x0000_i1026" src="https://ci4.googleusercontent.com/proxy/LfKwHAdVdIinmSYs8EgusS95xJEu6WEONWADOTYvKr9bxQ9nFLirjnRBHaNDwy-APCAEf9GgZSe1K-PuN9UVSW6i8rt6=s0-d-e1-ft#http://scopesi.com.ar/firma/img/boton_linkedin.png"></span></a><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040"><u></u><u></u></span></p></td><td style="padding:.75pt .75pt .75pt .75pt"><p class="MsoNormal"><a href="http://scopesi.com.ar/" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=es&amp;q=http://scopesi.com.ar/&amp;source=gmail&amp;ust=1587760541987000&amp;usg=AFQjCNEfjLk_Gti_M6kxzhwdNapQsyrmtw"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040;text-decoration:none"><img border="0" width="25" height="27" style="width:.2583in;height:.2833in" id="m_-5871488525304989380_x0000_i1025" src="https://ci6.googleusercontent.com/proxy/T6UI8K6SNRkHonzJYLJ7vgXHsBocuDq2dRIjzGnklnqO93YPAHc5vIm6xRFlzXBAiFkRh1zcOooG45rZnZSJ6NWW65pE=s0-d-e1-ft#http://scopesi.com.ar/firma/img/boton_internet.png"></span></a><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040"><u></u><u></u></span></p></td></tr></tbody></table><p class="MsoNormal"><span style="font-size:10.5pt;font-family:&quot;Nasalization Rg&quot;,sans-serif;color:#3d9040">&nbsp;<u></u><u></u></span></p></td><td width="225" valign="top" style="width:168.75pt;padding:0cm 0cm 0cm 0cm"><table border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100.0%"><tbody><tr><td style="padding:0cm 0cm 0cm 0cm"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>
+</footer>
+</body>
+
+</html>

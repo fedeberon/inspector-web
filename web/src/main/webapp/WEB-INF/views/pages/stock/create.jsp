@@ -1,0 +1,84 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<style>
+    .card form [class*="col-"]:first-child {
+        padding-left: 6px;
+    }
+    .card form [class*="col-"]:last-child {
+        padding-right: 6px;
+    }
+</style>
+
+<div class="content">
+    <div class="col-12">
+        <div class="card">
+            <%--@elvariable id="stock" type="com.ideaas.services.domain.Stock"--%>
+            <form:form action="save"  autocomplete="off" modelAttribute="stock" method="post">
+                <form:hidden path="idStock" value='null'/>
+                <div class="row ml-3">
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-6">
+                                        <label class="control-label pt-2">Cantidad de dispositivos en dep&oacute;sito</label>
+                                        <form:input  path="cantDispositivosDeposito" cssClass="form-control" id="cant_dispositivo_deposito" name="cant_dispositivo_calle" placeholder="Ingrese la cantidad de dispositivos que est&aacute;n en dep&oacute;sito"/>
+                                        <form:errors path="cantDispositivosDeposito" cssStyle="color: red;"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-6">
+                                        <label class="control-label pt-2">Cantidad de dispositivos en reparaci&oacute;n</label>
+                                        <form:input  path="cantDispositivosReparacion" cssClass="form-control" id="cant_dispositivo_reparacion" name="cant_dispositivo_reparacion" placeholder="Ingrese la cantidad de dispositivos que est&aacute;n en reparacion"/>
+                                        <form:errors path="cantDispositivosReparacion" cssStyle="color: red;"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-6">
+                                        <label class="control-label pt-2">Cantidad de dispositivos en calle</label>
+                                        <form:input  path="cantDispositivosCalle" cssClass="form-control" id="cant_dispositivo_calle" name="cant_dispositivo_calle" placeholder="Ingrese la cantidad de dispositivos que est&aacute;n en calle"/>
+                                        <form:errors path="cantDispositivosCalle" cssStyle="color: red;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="list" class="btn btn-light pull-left ml-3"><i class="fas fa-angle-double-left pr-2"></i>Volver</a>
+
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-secondary btn-fill pull-right mr-3" data-toggle="modal" data-target="#exampleModal">
+                            Guardar
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade modal-confirm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5>&iquest;Desea guardar el stock?</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="#" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-secondary btn-fill">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form:form>
+        </div>
+    </div>
+</div>
+

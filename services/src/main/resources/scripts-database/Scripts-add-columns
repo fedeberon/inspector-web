@@ -1,0 +1,38 @@
+alter table aud_empresas
+add bajaLogica boolean;
+
+alter table aud_localidades
+add bajaLogica boolean;
+
+alter table map_empresas
+add bajaLogica boolean;
+
+alter table map_elementos
+add bajaLogica boolean;
+
+alter table map_formato
+add bajaLogica boolean;
+
+alter table map_medios
+add bajaLogica boolean;
+
+alter table map_provincias
+add bajaLogica boolean;
+
+alter table map_localidades
+add bajaLogica boolean;
+
+alter table map_pois
+add bajaLogica boolean;
+
+alter table map_pois_sector
+add bajaLogica boolean;
+
+alter table map_pois_entidad
+add bajaLogica boolean;
+
+ALTER TABLE sistema_test.map_reservacion
+ADD orden_nro INT UNSIGNED NULL;
+
+ALTER TABLE `sistema_web`.`productos`
+CHANGE COLUMN `idProducto` `idProducto` INT(10) UNSIGNED NOT NULL DEFAULT 0 ;

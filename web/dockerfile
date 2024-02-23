@@ -1,0 +1,14 @@
+FROM --platform=linux/amd64 openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=/target/web-0.0.1-SNAPSHOT.war
+COPY ${JAR_FILE} app.war
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=dev","-jar","/app.war"]
+
+#Paso 1
+# cd web
+
+#Paso 2
+# mvn package && java -jar target/web-0.0.1-SNAPSHOT.jar
+
+#Paso 3
+# docker build -t fedeberon/jobs_challenge_v1 .

@@ -1,0 +1,382 @@
+-- 15-2-22 Added columns one_circuito and one_orden_s:
+-- SQL Query
+ALTER TABLE sistema_test.app_ubicacion_relevamiento ADD COLUMN one_circuito LONG NULL;
+ALTER TABLE sistema_test.app_ubicacion_relevamiento ADD COLUMN one_orden_s  LONG NULL;
+
+ALTER TABLE sistema_web.app_ubicacion_relevamiento ADD COLUMN one_circuito LONG NULL;
+ALTER TABLE sistema_web.app_ubicacion_relevamiento ADD COLUMN one_orden_s  LONG NULL;
+
+-- Rollback
+ALTER TABLE sistema_test.app_ubicacion_relevamiento DROP COLUMN one_circuito;
+ALTER TABLE sistema_test.app_ubicacion_relevamiento DROP COLUMN one_orden_s ;
+
+ALTER TABLE sistema_web. app_ubicacion_relevamiento DROP COLUMN one_circuito;
+ALTER TABLE sistema_web. app_ubicacion_relevamiento DROP COLUMN one_orden_s ;
+------------------------------------------------------------------------------------------------------------------
+-- 17-2-22 Add new table sistema_web.map_empresa_usuario:
+-- SQL Query
+CREATE TABLE sistema_test.map_empresa_usuario (
+    idUsuario INT(10) unsigned NOT NULL,
+    idEmpresa INT(10) unsigned NOT NULL,
+    PRIMARY KEY (idUsuario, idEmpresa),
+    KEY idUsuario (idUsuario),
+    KEY idEmpresa (idEmpresa),
+	CONSTRAINT map_empresa_usuario_ibfk_1 FOREIGN KEY (idUsuario) REFERENCES sistema_test.usuarios(idUsuario),
+	CONSTRAINT map_empresa_usuario_ibfk_2 FOREIGN KEY (idEmpresa) REFERENCES sistema_test.map_empresas(idEmpresa)
+) ENGINE=INNODB
+
+CREATE TABLE sistema_web.map_empresa_usuario (
+    idUsuario INT(10) unsigned NOT NULL,
+    idEmpresa INT(10) unsigned NOT NULL,
+    PRIMARY KEY (idUsuario, idEmpresa),
+    KEY idUsuario (idUsuario),
+    KEY idEmpresa (idEmpresa),
+	CONSTRAINT map_empresa_usuario_ibfk_1 FOREIGN KEY (idUsuario) REFERENCES sistema_web.usuarios(idUsuario),
+	CONSTRAINT map_empresa_usuario_ibfk_2 FOREIGN KEY (idEmpresa) REFERENCES sistema_web.map_empresas(idEmpresa)
+) ENGINE=INNODB
+
+
+-- Rollback
+ALTER TABLE sistema_test.map_empresa_usuario DROP CONSTRAINT map_empresa_usuario_ibfk_1;
+ALTER TABLE sistema_test.map_empresa_usuario DROP CONSTRAINT map_empresa_usuario_ibfk_2;
+DROP  TABLE sistema_test.map_empresa_usuario;
+
+ALTER TABLE sistema_web. map_empresa_usuario DROP CONSTRAINT map_empresa_usuario_ibfk_1;
+ALTER TABLE sistema_web. map_empresa_usuario DROP CONSTRAINT map_empresa_usuario_ibfk_2;
+DROP  TABLE sistema_web. map_empresa_usuario;
+
+------------------------------------------------------------------------------------------------------------------
+-- 7-3-22 Add new table sistema_web.parametro:
+-- SQL Query
+CREATE TABLE sistema_test.SEQ_PARAMETRO (
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+insert into sistema_test.SEQ_PARAMETRO values (1);
+
+CREATE TABLE sistema_test.parametros (
+    id_parametro INT(10) unsigned NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_parametro)
+)  ENGINE=INNODB;
+
+CREATE TABLE sistema_test.map_empresas_parametros (
+    id_parametro INT(10) unsigned NOT NULL,
+    idEmpresa int(10) unsigned NOT NULL,
+    KEY id_parametro(id_parametro),
+    KEY idEmpresa(idEmpresa),
+    CONSTRAINT fk_map_empresas_parametros_parametro   FOREIGN KEY (id_parametro) REFERENCES sistema_test.parametros(id_parametro),
+    CONSTRAINT fk_map_empresas_parametros_map_empresa FOREIGN KEY (idEmpresa)    REFERENCES sistema_test.map_empresas(idEmpresa)
+);
+
+CREATE TABLE sistema_web.SEQ_PARAMETRO (
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+insert into sistema_web .SEQ_PARAMETRO values (1);
+
+CREATE TABLE sistema_web.parametros (
+    id_parametro INT(10) unsigned NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_parametro)
+)  ENGINE=INNODB;
+
+CREATE TABLE sistema_web.map_empresas_parametros (
+    id_parametro INT(10) unsigned NOT NULL,
+    idEmpresa int(10) unsigned NOT NULL,
+    KEY id_parametro(id_parametro),
+    KEY idEmpresa(idEmpresa),
+    CONSTRAINT fk_map_empresas_parametros_parametro   FOREIGN KEY (id_parametro) REFERENCES sistema_web.parametros(id_parametro),
+    CONSTRAINT fk_map_empresas_parametros_map_empresa FOREIGN KEY (idEmpresa)    REFERENCES sistema_web.map_empresas(idEmpresa)
+);
+
+-- Rollback
+ALTER TABLE sistema_test.map_empresas_parametros DROP CONSTRAINT fk_map_empresas_parametros_parametro;
+ALTER TABLE sistema_test.map_empresas_parametros DROP CONSTRAINT fk_map_empresas_parametros_map_empresa;
+DROP  TABLE sistema_test.paramatros;
+ALTER TABLE sistema_test.SEQ_PARAMETRO;
+
+ALTER TABLE sistema_web .map_empresas_parametros DROP CONSTRAINT fk_map_empresas_parametros_parametro;
+ALTER TABLE sistema_web .map_empresas_parametros DROP CONSTRAINT fk_map_empresas_parametros_map_empresa;
+DROP  TABLE sistema_web .paramatros;
+ALTER TABLE sistema_web .SEQ_PARAMETRO;
+------------------------------------------------------------------------------------------------------------------
+-- 8-3-22 Add new table sistema_web.parametro:
+-- SQL Query
+
+CREATE TABLE sistema_test.map_ubicaiones_parametros (
+    id_parametro INT(10) unsigned NOT NULL,
+    idUbicacion INT(11) NOT NULL,
+    descripcion VARCHAR(255) NULL,
+    PRIMARY KEY (id_parametro, idUbicacion),
+    KEY id_parametro(id_parametro),
+    KEY idUbicacion(idUbicacion),
+    CONSTRAINT fk_map_ubicaiones_parametros_map_ubicaciones FOREIGN KEY (idUbicacion)  REFERENCES sistema_test.map_ubicaciones(idUbicacion)  ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_map_ubicaiones_parametros_parametros      FOREIGN KEY (id_parametro) REFERENCES sistema_test.parametros(id_parametro)  ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE sistema_web.map_ubicaiones_parametros (
+    id_parametro INT(10) unsigned NOT NULL,
+    idUbicacion INT(11) NOT NULL,
+    descripcion VARCHAR(255) NULL,
+    PRIMARY KEY (id_parametro, idUbicacion),
+    KEY id_parametro(id_parametro),
+    KEY idUbicacion(idUbicacion),
+    CONSTRAINT fk_map_ubicaiones_parametros_map_ubicaciones FOREIGN KEY (idUbicacion)  REFERENCES sistema_web.map_ubicaciones(idUbicacion)  ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_map_ubicaiones_parametros_parametros      FOREIGN KEY (id_parametro) REFERENCES sistema_web.parametros(id_parametro)  ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+-- Rollback
+ALTER TABLE sistema_test.map_ubicaiones_parametros DROP CONSTRAINT fk_map_ubicaiones_parametros_map_ubicaciones;
+ALTER TABLE sistema_test.map_ubicaiones_parametros DROP CONSTRAINT fk_map_ubicaiones_parametros_parametros;
+
+ALTER TABLE sistema_web .map_ubicaiones_parametros DROP CONSTRAINT fk_map_ubicaiones_parametros_map_ubicaciones;
+ALTER TABLE sistema_web .map_ubicaiones_parametros DROP CONSTRAINT fk_map_ubicaiones_parametros_parametros;
+------------------------------------------------------------------------------------------------------------------
+-- 14-3-22 Add new table sistema_web.stock:
+-- SQL Query
+    CREATE TABLE sistema_test.SEQ_STOCK (
+      `next_val` bigint(20) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_test .SEQ_STOCK values (1);
+
+CREATE TABLE sistema_test.sotck (
+    id_stock INT(10) unsigned NOT NULL,
+    cant_dipositivos_calle INT(11) NOT NULL,
+    cant_dipositivos_deposito INT(11) NOT NULL,
+    cant_dipositivos_reposarcion INT(11) NOT NULL,
+    PRIMARY KEY (id_stock),
+    KEY ix_stock_id_stock(id_stock)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+ALTER TABLE `sistema_test`.`map_empresas`
+ADD CONSTRAINT `fk_map_empresas_stock`
+  FOREIGN KEY (`id_stock`)
+  REFERENCES `sistema_test`.`stock` (`id_stock`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `sistema_test`.`map_empresas` ADD INDEX `fk_map_empresas_stock_idx` (`id_stock` ASC);
+
+CREATE TABLE sistema_web.SEQ_STOCK (
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_web .SEQ_STOCK values (1);
+
+CREATE TABLE sistema_web.sotck (
+    id_stock INT(10) unsigned NOT NULL,
+    cant_dipositivos_calle INT(11) NOT NULL,
+    cant_dipositivos_deposito INT(11) NOT NULL,
+    cant_dipositivos_reposarcion INT(11) NOT NULL,
+    PRIMARY KEY (id_stock),
+    KEY ix_stock_id_stock(id_stock)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+ALTER TABLE `sistema_web`.`map_empresas`
+ADD CONSTRAINT `fk_map_empresas_stock`
+  FOREIGN KEY (`id_stock`)
+  REFERENCES `sistema_web`.`stock` (`id_stock`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE `sistema_web`.`map_empresas` ADD INDEX `fk_map_empresas_stock_idx` (`id_stock` ASC);
+
+-- Rollback
+ALTER TABLE sistema_test.map_empresas DROP CONSTRAINT fk_map_empresas_stock;
+DROP  TABLE sistema_test.sotck ;
+DROP  TABLE sistema_test.SEQ_STOCK ;
+
+ALTER TABLE sistema_web. map_empresas DROP CONSTRAINT fk_map_empresas_stock;
+DROP  TABLE sistema_web. sotck ;
+DROP  TABLE sistema_web. SEQ_STOCK ;
+------------------------------------------------------------------------------------------------------------------
+ -- 14-3-22 Add new table sistema_web.stock:
+ -- SQL Query
+CREATE TABLE sistema_test.SEQ_MAP_CLIENTE(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_test.SEQ_MAP_CLIENTE(next_val) values(1);
+
+CREATE TABLE sistema_test.map_cliente(
+	id_map_cliente int(10) UNSIGNED NOT NULL,
+	nombre    varchar(256) NOT NULL,
+    agencia   varchar(256) DEFAULT NULL,
+    email     varchar(60)  DEFAULT NULL,
+	telefono  int(20)      UNSIGNED DEFAULT NULL,
+	direccion varchar(256) DEFAULT NULL,
+    ejecutivo_de_cuenta varchar(256) DEFAULT NULL,
+    PRIMARY KEY(id_map_cliente),
+	KEY ix_map_cliente_id_map_cliente (id_map_cliente)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sistema_test.map_empresa_map_cliente(
+	id_map_cliente int(10) unsigned NOT NULL,
+    idEmpresa int(10) unsigned NOT NULL,
+    PRIMARY KEY (id_map_cliente,idEmpresa),
+	KEY ix_map_empresa_map_cliente_id_map_cliente (id_map_cliente),
+	KEY ix_map_empresa_map_cliente_idEmpresa (idEmpresa),
+	CONSTRAINT fk_map_empresa_map_cliente_id_map_cliente FOREIGN KEY (id_map_cliente) REFERENCES sistema_test.map_cliente (id_map_cliente) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT fk_map_empresa_map_cliente_idEmpresa FOREIGN KEY (idEmpresa) REFERENCES sistema_test.map_empresas (idEmpresa) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+
+CREATE TABLE sistema_web.SEQ_MAP_CLIENTE(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_web.SEQ_MAP_CLIENTE(next_val) values(1);
+
+CREATE TABLE sistema_web.map_cliente(
+	id_map_cliente int(10) UNSIGNED NOT NULL,
+	nombre    varchar(256) NOT NULL,
+    agencia   varchar(256) DEFAULT NULL,
+    email     varchar(60)  DEFAULT NULL,
+	telefono  int(20)      UNSIGNED DEFAULT NULL,
+	direccion varchar(256) DEFAULT NULL,
+    ejecutivo_de_cuenta varchar(256) DEFAULT NULL,
+    PRIMARY KEY(id_map_cliente),
+	KEY ix_map_cliente_id_map_cliente (id_map_cliente)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sistema_web.map_empresa_map_cliente(
+	id_map_cliente int(10) unsigned NOT NULL,
+    idEmpresa int(10) unsigned NOT NULL,
+    PRIMARY KEY (id_map_cliente,idEmpresa),
+	KEY ix_map_empresa_map_cliente_id_map_cliente (id_map_cliente),
+	KEY ix_map_empresa_map_cliente_idEmpresa (idEmpresa),
+	CONSTRAINT fk_map_empresa_map_cliente_id_map_cliente FOREIGN KEY (id_map_cliente) REFERENCES sistema_test.map_cliente (id_map_cliente) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT fk_map_empresa_map_cliente_idEmpresa FOREIGN KEY (idEmpresa) REFERENCES sistema_test.map_empresas (idEmpresa) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+-- Rollback
+ALTER TABLE sistema_test.map_empresa_map_cliente DROP CONSTRAINT fk_map_empresa_map_cliente_id_map_cliente;
+ALTER TABLE sistema_test.map_empresa_map_cliente DROP CONSTRAINT fk_map_empresa_map_cliente_idEmpresa;
+DROP  TABLE sitema_test .map_empresa_map_cliente;
+DROP  TABLE sitema_test .map_cliente;
+DROP  TABLE sitema_test .SEQ_MAP_CLIENTE;
+
+ALTER TABLE sistema_web .map_empresa_map_cliente DROP CONSTRAINT fk_map_empresa_map_cliente_id_map_cliente;
+ALTER TABLE sistema_web .map_empresa_map_cliente DROP CONSTRAINT fk_map_empresa_map_cliente_idEmpresa;
+DROP  TABLE sistema_web .map_empresa_map_cliente;
+DROP  TABLE sistema_web .map_cliente;
+DROP  TABLE sistema_web .SEQ_MAP_CLIENTE;
+------------------------------------------------------------------------------------------------------------------
+ -- 4-4-22 Add new table sistema_web.map_reservacion:
+ -- SQL Query
+CREATE TABLE sistema_test.SEQ_MAP_RESERVACION(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_test.SEQ_MAP_RESERVACION(next_val) values(1);
+
+CREATE TABLE sistema_test.map_reservacion(
+	id_map_reservacion INT(10) UNSIGNED NOT NULL,
+	id_map_cliente     INT(10) UNSIGNED NOT NULL,
+	idUbicacion        INT(10)          NOT NULL,
+    fecha_desde DATE NOT NULL,
+    fecha_hasta DATE NOT NULL,
+	confirmada BOOLEAN DEFAULT false,
+    PRIMARY KEY(id_map_reservacion),
+	KEY ix_map_reservacion_id_map_reservacion(id_map_reservacion),
+	KEY ix_map_reservacion_id_map_cliente(id_map_cliente),
+	KEY ix_map_reservacion_idUbicacion(idUbicacion),
+    CONSTRAINT fk_map_reservacion_map_cliente  FOREIGN KEY (id_map_cliente) REFERENCES sistema_test.map_cliente(id_map_cliente),
+    CONSTRAINT fk_map_reservacion_map_ubicaion FOREIGN KEY (idUbicacion)    REFERENCES sistema_test.map_ubicaciones(idUbicacion)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sistema_web.SEQ_MAP_RESERVACION(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_web.SEQ_MAP_RESERVACION(next_val) values(1);
+
+CREATE TABLE sistema_web.map_reservacion(
+	id_map_reservacion INT(10) UNSIGNED NOT NULL,
+	id_map_cliente     INT(10) UNSIGNED NOT NULL,
+	idUbicacion        INT(10)          NOT NULL,
+    fecha_desde DATE NOT NULL,
+    fecha_hasta DATE NOT NULL,
+	confirmada BOOLEAN DEFAULT false,
+    PRIMARY KEY(id_map_reservacion),
+	KEY ix_map_reservacion_id_map_reservacion(id_map_reservacion),
+	KEY ix_map_reservacion_id_map_cliente(id_map_cliente),
+	KEY ix_map_reservacion_idUbicacion(idUbicacion),
+    CONSTRAINT fk_map_reservacion_map_cliente  FOREIGN KEY (id_map_cliente) REFERENCES sistema_test.map_cliente(id_map_cliente),
+    CONSTRAINT fk_map_reservacion_map_ubicaion FOREIGN KEY (idUbicacion)    REFERENCES sistema_test.map_ubicaciones(idUbicacion)
+)  ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Rollback
+ALTER TABLE sistema_test.map_reservacion DROP CONSTRAINT fk_map_reservacion_map_cliente;
+ALTER TABLE sistema_test.map_reservacion DROP CONSTRAINT fk_map_reservacion_map_ubicaion;
+DROP  TABLE sistema_test.map_reservacion;
+DROP  TABLE sistema_test.SEQ_MAP_RESERVACION;
+
+ALTER TABLE sistema_web .map_reservacion DROP CONSTRAINT fk_map_reservacion_map_cliente;
+ALTER TABLE sistema_web .map_reservacion DROP CONSTRAINT fk_map_reservacion_map_ubicaion;
+DROP  TABLE sistema_web .map_reservacion;
+DROP  TABLE sistema_web .SEQ_MAP_RESERVACION;
+------------------------------------------------------------------------------------------------------------------
+ -- 28-7-22 Change column type from int to long on map_cliente table:
+ -- SQL Query
+ALTER TABLE sistema_test   .map_cliente MODIFY telefono varchar(200)
+ALTER TABLE sistema_web    .map_cliente MODIFY telefono varchar(200)
+
+-------------------------------------------------------------------------------------------------------------------
+ALTER TABLE sistema_web_par.map_cliente MODIFY telefono varchar(200)
+
+CREATE TABLE sistema_web_par.SEQ_MAP_CLIENTE(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE sistema_web.SEQ_MAP_CLIENTE(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+insert into sistema_web_par.SEQ_MAP_CLIENTE(next_val) values(1);
+insert into sistema_web.SEQ_MAP_CLIENTE(next_val) values(1);
+insert into sistema_test .SEQ_STOCK values (1);
+
+
+ALTER TABLE sistema_test.stock
+DROP COLUMN cant_dispositivos_calle;
+
+ALTER TABLE sistema_web_par.stock
+drop INDEX stock_map_empresas_idx;
+
+ALTER TABLE sistema_web_par.stock
+ADD INDEX stock_map_empresas_idx (idEmpresa);
+
+ALTER TABLE sistema_web.stock
+ADD COLUMN idElemento INT(11) NULL AFTER cant_dispositivos_reparacion,
+ADD INDEX stock_map_elementos_idx (idElemento ASC);
+
+ALTER TABLE sistema_web_par.stock
+MODIFY `idEmpresa`  int(10) unsigned DEFAULT NULL;
+
+ALTER TABLE sistema_web_par.stock
+ADD CONSTRAINT stock_map_empresas
+FOREIGN KEY (`idEmpresa`)
+REFERENCES sistema_web_par.`map_empresas` (`idEmpresa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+ALTER TABLE sistema_web_par.stock
+ADD COLUMN idElemento INT(11) NULL AFTER cant_dispositivos_reparacion,
+ADD INDEX stock_map_elementos_idx (idElemento ASC);
+
+ALTER TABLE sistema_web_par.stock
+ADD CONSTRAINT stock_map_elementos
+  FOREIGN KEY (idElemento)
+  REFERENCES sistema_web_par.map_elementos (idElemento)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+CREATE TABLE sistema_web_par.`SEQ_MAP_CAMPANA` (
+`next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+insert into sistema_web_par.SEQ_MAP_CAMPANA values (1);|
+CREATE TABLE sistema_test.SEQ_MAP_RESERVACION(
+  `next_val` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into sistema_test.SEQ_MAP_RESERVACION(next_val) values(1);
+
+---
+
